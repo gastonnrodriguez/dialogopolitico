@@ -11,7 +11,7 @@ import "./Carousel.css"
 const LatestPosts = (data) => {
   const posts = data.data;
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto py-24">
       <Swiper
         className="latest-carousel flex flex-col items-center justify-center w-full"
         modules={[Navigation, Scrollbar, Autoplay]}

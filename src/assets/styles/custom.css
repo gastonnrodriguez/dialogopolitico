@@ -1,8 +1,22 @@
 .logo-social{
+    font-size: 0.8em;
     margin-right: 10px;
     background: rgba(7,71,128,1);
     border-radius: 100%;
     width: 40px;
     height: 40px;
     padding: 5px;
+}
+
+.app-box{
+    font-size: 0.8em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.app-logo{
+    height: 35px !important;
 }
