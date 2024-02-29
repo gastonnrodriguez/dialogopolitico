@@ -12,19 +12,21 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import HeroCarousel from '~/components/common/HeroCarousel';
+import LatestPosts from '~/components/common/LatestPosts';
+import Social from '~/components/common/Social.astro';
 
 const metadata = {
   title: 'Dialogo Político',
   ignoreTitleTemplate: true,
 };
 
-import { wpquery } from "../graphql/latestPostQuery";
+import { wpQuery } from "../graphql/latestPostQuery";
 import type { Post } from "../generated/graphql";
 
-const data = await wpquery({
+const last5AgendaPosts = await wpQuery({
   query: `
   {
-	posts(first: 5){
+	posts(where: { categoryName: "Agenda" }, first: 5){
     nodes {
       id
       slug
@@ -55,7 +57,9 @@ const data = await wpquery({
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-  <HeroCarousel client:load data={data.posts.nodes} style={{height: '400px'}}/>
+  <HeroCarousel client:load data={last5AgendaPosts.posts.nodes} style={{height: '400px'}}/>
+  <Social/>
+  <LatestPosts client:load data={last5AgendaPosts.posts.nodes} style={{height: '255px'}}/>
   <Hero
     actions={[
       {
