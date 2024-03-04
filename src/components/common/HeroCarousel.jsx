@@ -8,12 +8,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Carousel.css"
-const HeroCarousel = (data) => {
+const HeroCarousel = data => {
   const posts = data.data;
   return (
     <div className="container mx-auto">
       <Swiper
-        className="main-carousel flex flex-col items-center justify-center w-full"
+        className="main-carousel max-w-screen-lg mx-auto"
         modules={[Navigation, Pagination, Scrollbar, Autoplay]}
         centeredSlides={true}
         autoplay={{

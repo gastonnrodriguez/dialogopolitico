@@ -14,6 +14,9 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import HeroCarousel from '~/components/common/HeroCarousel';
 import LatestPosts from '~/components/common/LatestPosts';
 import Social from '~/components/common/Social.astro';
+import Editions from '~/components/common/Editions'; 
+import Recent from '~/components/common/Recent';
+import EditionBanner from '~/components/common/EditionBanner.astro';
 
 const metadata = {
   title: 'Dialogo Político',
@@ -53,13 +56,51 @@ const last5AgendaPosts = await wpQuery({
 }
   `,
 });
+
+const recentDPEnfoque = await wpQuery({
+  query:`{
+    posts(where: { categoryName: "Documentos" }){
+    nodes {
+      id
+      slug
+      title   
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+  }
+  }`
+});
+/*
+const postsByAuthor = await wpQuery({
+  query:`
+  {
+    allContentfulAuthor(filter: {slug: {eq: "myslug"}}) {
+    edges {
+      node {
+        name
+        article {
+          title
+          slug
+        }
+      }
+    }
+  }
+}
+  `
+});*/
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-  <HeroCarousel client:load data={last5AgendaPosts.posts.nodes} style={{height: '400px'}}/>
+  <HeroCarousel client:load data={last5AgendaPosts.posts.nodes}/>
   <Social/>
-  <LatestPosts client:load data={last5AgendaPosts.posts.nodes} style={{height: '255px'}}/>
+  <LatestPosts client:load data={last5AgendaPosts.posts.nodes}/>
+  <EditionBanner/>
+  <Editions client:load/>
+  <Recent client:load data={recentDPEnfoque.posts.nodes}/>
   <Hero
     actions={[
       {
@@ -436,3 +477,4 @@ const last5AgendaPosts = await wpQuery({
     </Fragment>
   </CallToAction>
 </Layout>
+~/components/common/Editions
