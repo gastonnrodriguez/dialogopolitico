@@ -17,7 +17,7 @@ import Social from '~/components/common/Social.astro';
 import Editions from '~/components/common/Editions'; 
 import Recent from '~/components/common/Recent';
 import EditionBanner from '~/components/common/EditionBanner.astro';
-
+import Trends from '~/components/common/Trends';
 const metadata = {
   title: 'Dialogo Político',
   ignoreTitleTemplate: true,
@@ -100,6 +100,7 @@ const postsByAuthor = await wpQuery({
   <LatestPosts client:load data={last5AgendaPosts.posts.nodes}/>
   <EditionBanner/>
   <Editions client:load/>
+  <Trends client:load data={last5AgendaPosts.posts.nodes}/>
   <Recent client:load data={recentDPEnfoque.posts.nodes}/>
   <Hero
     actions={[

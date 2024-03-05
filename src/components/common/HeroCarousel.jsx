@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./Carousel.css"
+import "../../assets/styles/custom.css"
 const HeroCarousel = data => {
   const posts = data.data;
   return (
