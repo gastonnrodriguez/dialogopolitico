@@ -11,11 +11,11 @@ import './Carousel.css';
 const LatestPosts = (data) => {
   const posts = data.data;
   return (
-    <div className="container mx-auto py-24">
+    <div className="container mx-auto py-4">
       <Swiper
         className="latest-carousel max-w-screen-lg mx-auto"
         modules={[Navigation, Scrollbar, Autoplay]}
-        centeredSlides={true}
+        centeredSlides={false}
         autoplay={{
           delay: 4500,
           disableOnInteraction: false,

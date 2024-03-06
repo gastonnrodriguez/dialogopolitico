@@ -6,14 +6,13 @@ import {  Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "../../assets/styles/custom.css"
 
-const Recientes = data => {
+const Ediciones = data => {
   const posts = data.data;
   return (
     <div>
         <Swiper
-        className="max-w-screen-lg mx-auto "
+        className="max-w-screen-lg mx-auto"
         modules={[Navigation]}
         centeredSlides={false}
         pagination={{
@@ -22,9 +21,8 @@ const Recientes = data => {
         navigation={true}
         spaceBetween={15}
         slidesPerView={5}
-        style={{ paddingTop:"120px" }}
       >
-          {posts.map((post, index) => (
+            {posts.map((post, index) => (
           <SwiperSlide key={post.id} className="">
             <div class="flex flex-col items-center justify-center w-full h-full max-w-sm mx-auto rounded-lg shadow-lg">
               <img
@@ -40,4 +38,4 @@ const Recientes = data => {
   )
 }
 
-export default Recientes
+export default Ediciones

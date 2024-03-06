@@ -13,7 +13,7 @@ const Ediciones = () => {
         <Swiper
         className="max-w-screen-lg mx-auto"
         modules={[Navigation]}
-        centeredSlides={true}
+        centeredSlides={false}
         pagination={{
           clickable: true,
         }}
