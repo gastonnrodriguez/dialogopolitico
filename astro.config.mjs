@@ -14,6 +14,7 @@ import react from "@astrojs/react";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE.site,
@@ -56,5 +57,5 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src')
       }
     }
-  }
+  },
 });
